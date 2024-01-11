@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Your Website</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color:#2C3539; 
+            color: #fff; 
+            margin: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        #results-container {
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            padding: 20px;
+            color: #29465B;
+            background-color: #eee;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        #results-header {
+            color: #5E5A80;
+            font-size: 24px;
+            margin-bottom: 15px;
+        }
+
+        #results-container ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        #results-container li {
+            margin-bottom: 20px;
+        }
+
+        #results-container li span {
+            font-weight: bold;
+            margin-right: 5px;
+        }
+
+        #results-container p {
+            margin: 0;
+        }
+
+        #vote-again-link,
+        #back-to-main-link {
+            text-decoration: none;
+            color: #3090C7;
+            display: inline-block;
+            margin-top: 10px;
+        }
+
+        #vote-again-link:hover,
+        #back-to-main-link:hover {
+            color: #004080; 
+        }
+    </style>
+</head>
+<body>
+
+<div id="results-container">
+    <h1 id="results-header">RESULTS</h1>
+    <ul>
+        {% for choice in question.choice_set.all %}
+            <li>
+                <span>{{ choice.choice_text }}</span> -- {{ choice.votes }} vote{{ choice.votes|pluralize }}
+            </li>
+        {% endfor %}
+    </ul>
+    <a href="{% url 'polls:detail' question.id %}" id="vote-again-link">Vote again?</a>
+    <a href="{% url 'polls:index' %}" id="back-to-main-link">Back to Main Page</a>
+</div>
+
+</body>
+</html>

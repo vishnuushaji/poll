@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .question-box {
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            padding: 10px;
+            margin-bottom: 15px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        #polls-container {
+            width: 50%;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            padding: 20px;
+            color: #29465B;
+            background-color: #eee;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        #polls-container ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        #polls-container li a {
+            text-decoration: none;
+            color: #333;
+            font-weight: bold;
+        }
+
+        #polls-container li a:hover {
+            color: #007bff;
+        }
+
+        #polls-container p {
+            margin: 0;
+        }
+    </style>
+</head>
+<body>
+
+<div id="polls-container">
+    <h2 id="polls-header">SELECT ANY</h2>
+    {% if latest_question_list %}
+        <ul>
+            {% for question in latest_question_list %}
+                <div class="question-box">
+                    <li><a href="{% url 'polls:detail' question.id %}">{{ question.question_text }}</a></li>
+                </div>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>No polls are available.</p>
+    {% endif %}
+</div>
+
+</body>
+</html>
