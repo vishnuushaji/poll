@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-0e=lg$-xeamd$b=kltfet(6geqmyu$$r+hm@b(96sbscck3$n&
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['polls-app-eta.vercel.app']
+ALLOWED_HOSTS = []
 
 
 # Application definition
