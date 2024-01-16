@@ -76,7 +76,7 @@ DATABASES = {
     # read os.environ['DATABASE_URL'] and raises ImproperlyConfigured exception if not found
     'default': env.db(),
     # read os.environ['SQLITE_URL']
-    'extra': env.db('PostgreSQL', default='postgresql://noufalmhd112:Zch5pt9sGFJr@ep-weathered-hat-a1hfluej.ap-southeast-1.aws.neon.tech/appartment?sslmode=require')
+    'extra': env.db('PostgreSQL', default='postgresql://noufalmhd112:Zch5pt9sGFJr@ep-weathered-hat-a1hfluej.ap-southeast-1.aws.neon.tech/polls?sslmode=require')
 }
 
 
